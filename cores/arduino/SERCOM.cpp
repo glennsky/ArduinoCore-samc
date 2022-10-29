@@ -708,6 +708,7 @@ void SERCOM::initClockNVIC( void )
     IdNvic = SERCOM3_IRQn;
 	MCLK->APBCMASK.bit.SERCOM3_ = 1;
   }
+  #if defined(SAMC21N)
   else if(this->sercom == SERCOM4)
   {
     clockId = GCM_SERCOM4_CORE;
@@ -720,7 +721,6 @@ void SERCOM::initClockNVIC( void )
     IdNvic = SERCOM5_IRQn;
 	MCLK->APBCMASK.bit.SERCOM5_ = 1;
   }
-  #if defined(SAMC21N)
   else if(this->sercom == SERCOM6)
   {
     clockId = GCM_SERCOM6_CORE;

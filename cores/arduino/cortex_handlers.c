@@ -63,10 +63,14 @@ void SERCOM1_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
 
 void SERCOM2_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
 void SERCOM3_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
+#ifdef SAMC21N
 void SERCOM4_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
 void SERCOM5_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
+#endif
 void CAN0_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
+#ifdef SAMC21N
 void CAN1_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
+#endif
 void TCC0_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
 void TCC1_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
 void TCC2_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
@@ -143,10 +147,14 @@ const DeviceVectors exception_table = {
 
     .pfnSERCOM2_Handler     = (void*) SERCOM2_Handler,        /* 11 Serial Communication Interface 2 */
     .pfnSERCOM3_Handler     = (void*) SERCOM3_Handler,        /* 12 Serial Communication Interface 3 */
+#ifdef SAMC21N
     .pfnSERCOM4_Handler     = (void*) SERCOM4_Handler,        /* 13 Serial Communication Interface 4 */
     .pfnSERCOM5_Handler     = (void*) SERCOM5_Handler,        /* 14 Serial Communication Interface 5 */
+#endif
     .pfnCAN0_Handler        = (void*) CAN0_Handler,           /* 15 Control Area Network 0 */
+#ifdef SAMC21N
     .pfnCAN1_Handler        = (void*) CAN1_Handler,           /* 16 Control Area Network 1 */
+#endif
     .pfnTCC0_Handler        = (void*) TCC0_Handler,           /* 17 Timer Counter Control 0 */
     .pfnTCC1_Handler        = (void*) TCC1_Handler,           /* 18 Timer Counter Control 1 */
     .pfnTCC2_Handler        = (void*) TCC2_Handler,           /* 19 Timer Counter Control 2 */
